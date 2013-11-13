@@ -5,7 +5,7 @@
 describe('PhoneCat App', function() {
 
   it('should redirect index.html to index.html#/phones', function() {
-    browser().navigateTo('../../app/index.html');
+    browser().navigateTo('app/index.html');
     expect(browser().location().url()).toBe('/phones');
   });
 
@@ -13,7 +13,7 @@ describe('PhoneCat App', function() {
   describe('Phone list view', function() {
 
     beforeEach(function() {
-      browser().navigateTo('../../app/index.html#/phones');
+      browser().navigateTo('app/index.html#/phones');
     });
 
 
@@ -54,7 +54,7 @@ describe('PhoneCat App', function() {
   describe('Phone detail view', function() {
 
     beforeEach(function() {
-      browser().navigateTo('../../app/index.html#/phones/nexus-s');
+      browser().navigateTo('app/index.html#/phones/nexus-s');
     });
 
 
@@ -70,10 +70,10 @@ describe('PhoneCat App', function() {
 
     it('should swap main image if a thumbnail image is clicked on', function() {
       element('.phone-thumbs li:nth-child(3) img').click();
-      expect(element('img.phone').attr('src')).toBe('img/phones/nexus-s.2.jpg');
+      expect(element('img.phone.active').attr('src')).toBe('img/phones/nexus-s.2.jpg');
 
       element('.phone-thumbs li:nth-child(1) img').click();
-      expect(element('img.phone').attr('src')).toBe('img/phones/nexus-s.0.jpg');
+      expect(element('img.phone.active').attr('src')).toBe('img/phones/nexus-s.0.jpg');
     });
   });
 });
